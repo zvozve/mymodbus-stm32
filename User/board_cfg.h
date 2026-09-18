@@ -14,7 +14,7 @@
 
 #include "main.h"
 #include "usart.h"
-#include "tim.h"
+#include "iwdg.h"
 
 /* ========== 功能开关（驱动读取，决定编译哪些传输/外设） ========== */
 #define BOARD_MODBUS_RTU_ENABLE   1      /* RTU 串行传输（仅依赖 UART，默认开） */

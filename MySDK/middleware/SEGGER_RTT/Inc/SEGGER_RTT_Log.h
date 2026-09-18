@@ -116,7 +116,7 @@
 #define DBG_LOG(fmt, ...)     RTT_LOG_TAG(DBG_LOG_ENABLE,    "DBG",    fmt, ##__VA_ARGS__)
 
 #ifndef HEX_LOG_ENABLE
-    #define HEX_LOG_ENABLE     0
+    #define HEX_LOG_ENABLE     1
 #endif
 #define HEX_LOG(prefix, data, len) HEX_PRINT(HEX_LOG_ENABLE, prefix, data, len)
 

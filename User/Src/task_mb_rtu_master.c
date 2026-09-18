@@ -92,7 +92,7 @@ void TaskModbus_M_Init(void) {
     uart_reconfig2(115200);
 
     static modbus_master_config_t cfg2 = {
-        .target_slave_addr = 2,
+        .target_slave_addr = 1,
         .poll_interval_ms = 100,
         .min_frame_gap_ms = 100,
         .response_timeout_ms = 1000,

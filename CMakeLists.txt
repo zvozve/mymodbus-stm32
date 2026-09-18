@@ -82,7 +82,13 @@ list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
+    # 关键修复：SDK 内含若干 HAL 弱符号覆写（HAL_UART_TxCpltCallback 等），
+    # 若作为普通静态库链接，链接器会用 HAL 的弱桩满足引用、把覆写目标裁剪掉，
+    # 导致 UART TX 完成回调永远指向空桩 → drv->state 卡 TX_BUSY → 发送永久 -2。
+    # 用 --whole-archive 强制把 SDK 所有目标文件纳入链接，覆写得以生效。
+    -Wl,--whole-archive
     mystm32            # mystm32-sdk 组件（oop_*/devices/SEGGER_RTT/Modbus）
+    -Wl,--no-whole-archive
 
     # Add user defined libraries
 )

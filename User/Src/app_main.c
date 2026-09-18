@@ -19,13 +19,13 @@
 // 任务开关（编辑此处 0/1 或用 CMake -D 覆盖）
 // ============================================
 #ifndef APP_TASK_MB_RTU_SLAVE
-#define APP_TASK_MB_RTU_SLAVE     0   /* RTU 从机 (UART2) */
+#define APP_TASK_MB_RTU_SLAVE     1   /* RTU 从机 (UART2) */
 #endif
 #ifndef APP_TASK_MB_RTU_MASTER
 #define APP_TASK_MB_RTU_MASTER    0   /* RTU 主机 (UART1) */
 #endif
 #ifndef APP_TASK_MB_TCP_SERVER
-#define APP_TASK_MB_TCP_SERVER    1   /* TCP 服务器 (:502) */
+#define APP_TASK_MB_TCP_SERVER    0   /* TCP 服务器 (:502) */
 #endif
 #ifndef APP_TASK_MB_TCP_CLIENT
 #define APP_TASK_MB_TCP_CLIENT    0   /* TCP 客户端（多实例 master） */
