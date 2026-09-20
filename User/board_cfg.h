@@ -17,6 +17,7 @@
 #include "iwdg.h"
 
 /* ========== 功能开关（驱动读取，决定编译哪些传输/外设） ========== */
+#define BOARD_USE_RTOS            1      /* 2.0 结构：FreeRTOS / CMSIS-RTOS2 宿主 */
 #define BOARD_MODBUS_RTU_ENABLE   1      /* RTU 串行传输（仅依赖 UART，默认开） */
 #define BOARD_MODBUS_TCP_ENABLE   1      /* TCP 传输：需要 LwIP 栈；无网口板设 0 */
 #define BOARD_HEART_IWDG_ENABLE   1      /* 心跳喂狗：无独立看门狗设 0 */

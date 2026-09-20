@@ -42,7 +42,7 @@ add_subdirectory(MySDK)
 
 # 让 SDK 驱动读取工程侧 board_cfg.h 的功能开关（MB_BOARD_CFG 触发 SDK 头内 #include "board_cfg.h"）
 target_include_directories(mystm32 PUBLIC ${CMAKE_SOURCE_DIR}/User)
-target_compile_definitions(mystm32 PUBLIC MB_BOARD_CFG)
+target_compile_definitions(mystm32 PUBLIC SDK_BOARD_CFG)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -91,11 +91,4 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     -Wl,--no-whole-archive
 
     # Add user defined libraries
-)
-
-# 编译后自动生成 .hex 和 .bin 文件
-add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${CMAKE_PROJECT_NAME}> $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>/${CMAKE_PROJECT_NAME}.hex
-    COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:${CMAKE_PROJECT_NAME}> $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>/${CMAKE_PROJECT_NAME}.bin
-    COMMENT "Generating HEX and BIN firmware"
 )
