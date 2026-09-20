@@ -48,7 +48,7 @@
 // ============================================
 // RTOS支持
 // ============================================
-#define APP_USE_RTOS    1
+#define APP_USE_RTOS    BOARD_USE_RTOS
 
 #ifdef APP_USE_RTOS
     #include "FreeRTOS.h"
@@ -166,6 +166,7 @@ void App_Init(void) {
     // 基础硬件初始化
     ETH_RST_Init(BOARD_ETH_RST_PORT, BOARD_ETH_RST_PIN);
     oop_InitDWT();
+    APP_LOG("APP_FW_VERSION: %s, APP_PUBLISH_DATE: %s", APP_FW_VERSION, APP_PUBLISH_DATE);
     ETH_RST_Execute();
     
 #ifdef APP_USE_RTOS

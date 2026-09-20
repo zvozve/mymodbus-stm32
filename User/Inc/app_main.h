@@ -15,6 +15,10 @@ extern "C" {
 #endif
 #define APP_LOG(fmt, ...)     RTT_LOG_TAG(APP_LOG_ENABLE,    "APP",    fmt, ##__VA_ARGS__)
 
+/* ========== 固件版本 ========== */
+#define APP_FW_VERSION          "5.0.3"
+#define APP_PUBLISH_DATE        "2026-09-20"
+
 void App_Init(void);
 void App_Loop(void);
 
